@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Locked Hero and Centered Navbar Layout</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- W3.CSS Framework -->
+  <link rel="stylesheet" href="styles/w3.css">
+  
+  <style>
+    /* 1. GLOBAL RESET - Removes all hidden browser white borders */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    main {
+      background-image: url('images/2026_09.webp') ;
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* 2. FIXED HERO BACKGROUND LAYER */
+    .hero-bg {
+      /* Replace this dummy image URL with your actual background image file path */
+      background-image: url('images/box1.jpg');
+      height: 10vh; 
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      
+      /* Locks the layout flat against the window glass */
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10; /* Lowest layer */
+    }
+
+    /* Vertical stack layout for the button and text elements */
+    .button-text-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px; /* Space between text and the button image */
+    }
+
+    /* Clear text styles with heavy drop shadows to stand out over images */
+    .btn-side-text {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), -2px -2px 8px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Custom Steampunk Button Transitions */
+    .steampunk-btn img {
+      width: 70px; /* Modify size to fit your artwork dimensions */
+      height: auto;
+      filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Hover State: Gentle lift and golden glow amplification */
+    .steampunk-btn img:hover {
+      transform: scale(1.06) translateY(-3px);
+      filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.9));
+    }
+
+    /* Active State: Simulates physical spring compression when clicked */
+    .steampunk-btn img:active {
+      transform: scale(0.97) translateY(1px);
+      filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.6));
+    }
+
+
+    /* 3. SCROLLING CONTAINER LAYER */
+    .scroll-content {
+      position: sticky;
+      margin-top: 10vh; /* Pushes content down so the full screen hero shows first */
+      z-index: 2;        /* Middle layer - sits above the fixed background image */
+    }
+
+    /* Flexbox rule to perfectly center W3.CSS horizontal link bars */
+    .centered-bar {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Sticky Navbar logic to force it on top of all other elements */
+    .sticky-nav {
+      position: -webkit-sticky; /* Legacy Safari support */
+      position: sticky;
+      top: 0;
+      z-index: 999; /* Absolute top layer - cannot be covered up */
+      margin-top: 10vh;
+    }
+
+    body {
+      background-color: black;
+    }
+
+    P.li {
+      color: #ffffff;
+      padding-left: 2cm;
+      padding-right: 2cm;
+      padding-top: 1cm;
+    }
+    ul {
+      color: #ffffff;
+      text-align: justify;
+      padding-left:3cm;
+      padding-right:3cm;
+      padding-top: 1cm;
+    }
+    dl {
+      color: #ffffff;
+    }
+
+
+    h1, h2, h3, h4, h5 {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================= -->
+  <!-- 1. FIXED BACKGROUND PANEL     -->
+  <!-- ============================= -->
+    <header class="hero-bg w3-display-container">
+    <!-- Centering Wrapper -->
+    <div class="w3-display-middle button-text-wrapper">
+      
+      <!-- Text in front of (above) the button -->
+      <span><h2>Court Jester</h2></span>
+      
+      <!-- Steampunk Link Button Asset Wrapper -->
+      <a href="#top" class="steampunk-btn" aria-label="Scroll to top of the page">
+        <!-- Replace the source URL with your personal image path when ready -->
+        <img src="images/jester.png" alt="Steampunk Interface Button">
+      </a>
+      
+      <!-- Text behind (below) the button -->
+      <span><h2>E n s e m b l e</h2></span>
+      
+    </div>
+
+  </header>
+
+
+  <!-- ============================= -->
+  <!-- 2. SCROLLING CONTENT WRAPPER  -->
+  <!-- ============================= -->
+  <div class="scroll-content">
+
+    <!-- HORIZONTAL NAV BAR (Pure Black Strip, Centers items, Locks at top edge) -->
+    <nav class="w3-bar w3-black w3-large w3-padding-16 centered-bar sticky-nav w3-card-4">
+      <a href="#Auswahl1" class="w3-bar-item w3-button w3-hover-amber w3-round">| &nbsp Herzmensch &nbsp | &nbsp</a>
+      <a href="#Auswahl2" class="w3-bar-item w3-button w3-hover-amber w3-round">| &nbsp Vakuum Set &nbsp | &nbsp</a>
+      <a href="#Auswahl3" class="w3-bar-item w3-button w3-hover-amber w3-round">| &nbsp Cirque de Folie &nbsp | &nbsp</a>
+      <a href="#Auswahl4" class="w3-bar-item w3-button w3-hover-amber w3-round">| &nbsp Ehe Set &nbsp | &nbsp</a>
+      <a href="#Auswahl5" class="w3-bar-item w3-button w3-hover-amber w3-round">| &nbsp Der Künstler &nbsp | &nbsp</a>
+      <a href="#Auswahl6" class="w3-bar-item w3-button w3-hover-amber w3-round">| &nbsp Versprechen &nbsp | &nbsp</a>
+      <a href="#Auswahl7" class="w3-bar-item w3-button w3-hover-amber w3-round">| &nbsp Danksagungen &nbsp | &nbsp</a>
+    </nav>
+
+    <!-- CONTENT MODULE (Solid background color blocks the fixed hero image) -->
+    <main class="w3-container w3-padding-64 w3-center w3-white" style="min-height: 1500px;">
+      <!-- Content Section Example: About -->
+     
+    <!--======================================-->
+    <!--               cards                  -->
+    <!--======================================-->
+      <section id="Auswahl1" class="w3-padding">
+        <div class="w3-grid" style="grid-template-columns:repeat(auto-fit,minmax(50%,1fr));gap:0px">
+
+          <div class="w3-card w3-padding-64 w3-container">
+            <img src="images/2026_01.webp" alt="Herzmensch" style="width:100%">
+          </div>
+
+          <div class="w3-card w3-container w3-padding-64">
+            <h2>„Dinner für deinen Herzmensch“</h2>
+            <p class="li">Das Gourmet-Kochbuch! Vergessen Sie Candle-Light-Dinners mit unzuverlässigen Dates, die am Ende doch nur über ihren Ex-Partner oder den neuesten Alltags-Mist jammern. Ihr wahrer Herzmensch schnurrt, hat Krallen und verurteilt Sie nicht für Ihre Jogginghose. Kochen Sie sich in das Herz Ihres pelzigen Diktators!</p>
+            <ul>
+              <li>Das Werk: Ein edel gebundenes Hardcover-Buch voller Rezepte, Ideen und Rituale für ganz besondere, leicht unheimliche
+                  Momente zu zweit.
+              </li>&nbsp
+              <li>Der Inhalt: Vom „Mäusestrudel an Whiskas-Reduktion“ bis zum „Thunfisch-Tatar im Kerzenschein“. Inklusive Anleitung,
+                  wie Sie Ihrer Katze ein Lätzchen umbinden, ohne dass sie Ihnen das Gesicht zerfleischt.
+              </li>&nbsp
+              <li>Das Versprechen: Wenn das Tinder-Date mal wieder wegen „akuter Müdigkeit“ absagt, bleibt Ihnen immer noch der
+                  treueste Begleiter, der Sie zumindest so lange liebt, wie der Napf voll ist. Die ultimative kulinarische Flucht vor dem 
+                  Alltags-Mist.
+              </li>
+            </ul>
+          </div>
+      </section>
+
+      <section id="Auswahl2" class="w3-padding-64">
+        <div class="w3-grid" style="grid-template-columns:repeat(auto-fit,minmax(50%,1fr));gap:0px">
+
+          <div class="w3-card w3-container w3-padding-64">
+            <h1>„Für das männliche Vakuum“</h1>
+            <p class="li">Der Pömpel für alle, die im Leben einfach nichts mehr auf die Reihe kriegen.
+            Wenn der Druck im Alltag zu groß wird, hilft nur noch der kontrollierte Unterdruck.</p>
+              <ul>
+                <li>Vakuum-Sauger: Mit echtem Holzgriff und majestätischer Trauer-Schleife.
+                </li>&nbsp
+                <li>Anti-Scham-Spray: Einmal sprühen, und die Peinlichkeit des Moments verfliegt (oder wird zumindest vom intensiven Duft nach billigem Jahrmarkt überdeckt).
+                </li>&nbsp
+                <li>Das Versprechen: Garantiert schalldicht. Lässt den Penis und die Existenzangst im Vakuum stumm dastehen. Manchmal ist Leere einfach nur gut.
+                </li>
+               </ul>
+            </div>
+
+          <div class="w3-card w3-container">
+            <img src="images/2026_04.webp" alt="Der Pömpel" style="width:100%">
+          </div>
+        </div>
+      </section>
+
+      <section id="Auswahl3" class="w3-padding">
+        <div class="w3-grid" style="grid-template-columns:repeat(auto-fit,minmax(50%,1fr));gap:0px">
+
+          <div class="w3-card w3-padding-64 w3-container">
+            <img src="images/2026_03.webp" alt="Wackel Hut" style="width:100%">
+          </div>
+
+          <div class="w3-card w3-container w3-padding-64">
+            <h2>Die „Cirque de Folie“ Sammler-Kollektion</h2>
+            <p class="li">Holen Sie sich mit der „Cirque de Folie“ Sammler-Kollektion den Wahnsinn direkt ins Wohnzimmer. Unsere exklusive Merchandise-Linie für den modernen Hofnarren von Welt, angeführt von unserem ewigen Zirkusdirektor.
+            <ul>
+              <li>Die Actionfigur / Bobblehead: Mit echtem, patentiertem Wackel-Zylinder! Ein sanfter Stupser gegen den Hut, und die Figur nickt zu jeder Ihrer schlechten Lebensentscheidungen. Kommt stilecht mit Miniatur-Gitarre, Mikrofon und der begehrten „Area 52“-Tasse.
+              </li>&nbsp
+              <li>Das versteckte Sound-Gimmick: Diese Figur wackelt nicht nur, sie spricht auch! Machen Sie jede dröge Autofahrt zum ultimativen, psychedelischen Erlebnis. Wollten Sie schon immer mal ein missglücktes Parkmanöver im Berufsverkehr mit den scharfzüngigen Worten des Monsieur Loyal kommentiert haben? Dann seien Sie gespannt auf ein begieriges "Oh-la-la!" oder ein markerschütterndes, französisches "Bonjouuuuuur mesdames et messieurs!", das direkt aus dem eingebauten Mini-Lautsprecher scheppert. Der perfekte Soundtrack für den alltäglichen Wahnsinn auf der Überholspur.
+              </li>&nbsp
+              <li>Das Komplettpaket: Runden Sie Ihr neues Ich ab mit dem offiziellen T-Shirt, der Trucker-Cap für schlechte  Haartage, Plektren, Aufklebern und dem „Cirque de Folie“-Kaffeebecher für den bitteren Trank am Morgen.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="Auswahl4" class="w3-padding-64">
+        <div class="w3-grid" style="grid-template-columns:repeat(auto-fit,minmax(50%,1fr));gap:0px">
+
+          <div class="w3-card w3-container w3-padding-64">
+            <h1>„Das Klinkenberg Alibi-Eheset“</h1>
+            <p class="li">Das offizielle „Klinkenberg Alibi-Eheset“ Liebe vergeht, aber die Steuerklasse bleibt. Für alle taktischen Romantiker bieten wir die ultimative Lösung zur legalen (oder zumindest sehr kreativen) Steueroptimierung „Liebe ist nur steuerlich relevant.“
+            </p>
+              <ul>
+                <li>Der Ring: Gefertigt aus echtem, schwerem Messing. Innen filigran graviert mit dem ultimativen Liebesschwur: „140% Steuerklasse – garantiert!“ und „Je Maintiens“ (Ich halte durch – vor allem finanziert).
+                </li>&nbsp
+                <li>Gütertrennungs-Urkunde: Bereits komplett vorgefüllt. Keine gemeinsamen Schulden, keine Erwartungen, nur Vorteile und ein rechtsanwaltlich anmutendes Siegel für den schnellen Frieden.
+              </ul>
+            </div>
+
+          <div class="w3-card w3-container">
+            <img src="images/2026_05.webp" alt="Der Pömpel" style="width:100%">
+          </div>
+        </div>
+      </section>
+
+       <section id="Auswahl5" class="w3-padding">
+        <div class="w3-grid" style="grid-template-columns:repeat(auto-fit,minmax(50%,1fr));gap:0px">
+
+          <div class="w3-card w3-padding-64 w3-container">
+            <img src="images/2026_08.webp" alt="Der Künstler" style="width:100%">
+          </div>
+
+          <div class="w3-card w3-container w3-padding-64">
+            <h2>Das Court Jester Ensemble</h2>
+            <p class="li">Exklusiver Edelschund für die gehobene Existenzangst🃏🎪🎩
+Herzlich willkommen. Sie haben viel zu viel gefühlt, zu wenig gekonnt und sind trotzdem hier gelandet? Perfekt. Das Court Jester Ensemble bedient genau die Marktlücke, von der Ihr Therapeuten-Team gehofft hat, dass sie niemals existiert. Wir verkaufen keine Produkte – wir verkaufen die pure, materialisierte Verzweiflung im edlen Rokoko-Totenkopf-Design.
+Ob finanzielle Scheinehe oder die endgültige Kapitulation vor dem verstopften Abfluss des Lebens: Wir haben das passende Set für Ihr persönliches Desaster. Garantiert unpraktisch, handwerklich fragwürdig und steuerlich absolut relevant.
+              </p>&nbsp
+          
+            <img src="images/2026_06.webp" alt="Der Künstler" style="width:100%">
+        </div>
+      </section>
+
+      <hr style="width:200px; margin: auto;" class="w3-border-grey">
+
+      <!-- Content Section Example: Services -->
+      <section id="Auswahl6" class="w3-content w3-padding-64" >
+        <h2 class="w3-wide">Unser Qualitätsversprechen</h2>
+        <p class="li" >
+          
+Wir garantieren Ihnen, dass jeder Artikel mit der maximalen Dosis Zynismus und feinstem Auge fürs Detail hergestellt wurde. Unsere Produkte lösen keine Probleme – aber sie sehen verdammt gut aus, während Sie dabei zusehen, wie alles den Bach runtergeht.
+Jetzt zugreifen, bevor das Finanzamt oder die Sanitär-Innung unsere Seite sperrt!
+        </p>
+      </section>
+
+      <section id="Auswahl7" class="w3-content w3-padding-64" >
+          <h2 class="w3-wide">Kundenbewertungen des puren Wahnsinns</h2>
+          
+        <ul>
+          <li>Zum Vakuum-Set „Für das männliche Vakuum“</li>
+            <ul>
+              <li>Klaus-Dieter M. (57) „Der Klempner war entsetzt, ich bin erlöst“ „Nachdem ich im Leben wirklich gar nichts mehr auf die Reihe bekommen habe, war dieses Set mein letzter Strohhalm.</li>
+              <ul>
+                    <li>Der Pömpel saugt nicht nur die Existenzangst aus der Seele, sondern hält auch absolut bombenfest.</li>
+                    &nbsp;
+                    <li>Das Anti-Scham-Spray riecht zwar exakt wie eine verlassene Geisterbahn um 3 Uhr morgens, aber es wirkt: Meine Frau schämt sich jetzt so sehr für mich, dass sie mich endlich komplett in Ruhe lässt. Manchmal ist Leere eben einfach nur gut</li>
+
+                </ul><li>5 von 5 Vakuum-Sterne!“</li></ul>
+                &nbsp;
+          <li>Zum „Klinkenberg Alibi-Eheset“</li>
+            <ul>
+              <li>Manfred B. (42) – „Finanzamt hasst diesen einen Trick!“</li>
+              <ul>
+                    <li>„Ich habe die vorgefüllte Gütertrennungs-Urkunde einfach meiner Katze vorgelegt (sie hat mit der Pfote unterschrieben) und trage den schweren Messingring jetzt stolz im Büro. Mein Sachbearbeiter beim Finanzamt hat beim Anblick der Gravur '140% Steuerklasse – garantiert!' kurz geweint und mich direkt in eine andere Kategorie eingestuft. Keine Erwartungen, keine gemeinsamen Schulden, nur Vorteile. Romantik ist tot, lang lebe die Steuerersparnis!“</li>
+                </ul></ul>
+                &nbsp;
+
+          <li>Zur „Cirque de Folie“ Actionfigur</li>
+            <ul>
+              <li>Chantal K. (31) – „Der beste Beifahrer, den man sich (nicht) wünschen kann“</li>
+              <ul>
+                    <li>„Ich habe mir die Figur aufs Armaturenbrett geklebt. Gestern beim Einparken in eine viel zu enge Lücke bin ich voll gegen den Bordstein gekracht. Prompt wackelt der Zylinder und aus dem Ding scheppert ein unfassbar begieriges 'Oh-la-la!', gefolgt von einem ohrenbetäubenden 'Bonjouuuuuur mesdames et messieurs!'. Die Passanten haben geglotzt, mein Auto ist Schrott, aber die Fahrt war das absolut ultimative Erlebnis. Kauft das Ding, euer Leben wird nie wieder langweilig sein.“</li>
+                </ul></ul>
+                &nbsp;
+
+          <li>Zum Gourmet-Kochbuch „Dinner für deinen Herzmensch“</li>
+            <ul>
+              <li>Christine S. (39) – „Sie hat das Lätzchen gefressen, aber der Vibe stimmt““</li>
+              <ul>
+                    <li>„Nach dem drittletzten Tinder-Desaster dachte ich mir: Schluss mit dem Alltags-Mist, ich koche jetzt für den wahren Chef im Haus. Das 'Thunfisch-Tatar im Kerzenschein' sah fantastisch aus. Meine Katze Minka hat zwar erst versucht, mir die Pulsadern aufzuschlitzen, als ich ihr das Lätzchen umbinden wollte, aber am Ende saßen wir schweigend im Kerzenschein. Sie starrte mich an, ich starrte sie an. Absolute, vollkommene soziale Isolation im Luxus-Stil. Ein Meisterwerk von einem Kochbuch!“</li>
+                </ul></ul>
+        </ul>
+      </section>
+    </main>
+
+  </div>
+
+</body>
+</html>
