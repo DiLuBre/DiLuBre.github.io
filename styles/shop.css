@@ -1,2 +1,126 @@
-[InternetShortcut]
-URL=file:///c%3A/Users/didi/Desktop/Sebastian/bastyWebpage/styles/shop.css
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.cart-container {
+  background: #fff;
+  width: 100%;
+  max-width: 600px;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+.cart-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.item-details {
+  flex: 1;
+  margin-left: 16px;
+}
+
+.item-details h4 {
+  font-size: 1rem;
+  color: #222;
+}
+
+.item-details .price {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.item-quantity input {
+  width: 50px;
+  padding: 6px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+  margin-left: 16px;
+}
+
+.remove-btn:hover {
+  color: #e74c3c;
+}
+
+.cart-summary {
+  border-top: 2px solid #eee;
+  padding-top: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.summary-row.total {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #111;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  background-color: #27ae60;
+}
